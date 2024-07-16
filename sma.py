@@ -182,7 +182,12 @@ def final_return(start_date,end_date):
         except:
             continue
 
-    for i in range(len(money_sequences[0])):
+    max_days = 0
+    for sequence in money_sequences:
+        if len(sequence) > max_days:
+            max_days = len(sequence)
+
+    for i in range(max_days):
         money_on_date = 0
         for sequence in money_sequences:
             try:
@@ -191,7 +196,7 @@ def final_return(start_date,end_date):
                 pass
         final_money.append(money_on_date)
 
-    for i in range(len(budget_sequences[0])):
+    for i in range(max_days):
         money_on_date = 0
         for sequence in budget_sequences:
             try:
