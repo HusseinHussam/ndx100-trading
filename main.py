@@ -16,7 +16,7 @@ def main():
 
     # List available stocks
     directory = 'ndx100'
-    stocks = [os.fsdecode(file)[:-4] for file in os.listdir(directory) if file.endswith('.csv')]
+    stocks = sorted([os.fsdecode(file)[:-4] for file in os.listdir(directory) if file.endswith('.csv')])
     stocks.insert(0, 'All')
     selected_stock = st.selectbox('Select a stock:', stocks)
 
